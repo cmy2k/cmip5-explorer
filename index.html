@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CMIP5 State Product Explorer</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="app/app.css" />
+	<link rel="stylesheet" href="vendor/leaflet.css" />
+	<link rel="stylesheet" href="vendor/jquery-ui.min.css" />
+	<link rel="stylesheet" href="vendor/skeleton.css" />
+	<link rel="stylesheet" href="vendor/normalize.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<h1>CMIP5 State Product Explorer</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="nine columns" id="map"></div>
+			<div class="three columns">
+				<div class="row">
+					<strong id="state">Select a state from the map</strong>
+				</div>
+				<div class="row" id="periods" style="display: none;">
+					Selectable links here.
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="vendor/jquery-2.1.4.min.js"></script>
+	<script src="vendor/jquery-ui.min.js"></script>
+	<script src="vendor/leaflet.js"></script>
+	<script src="app/app.js"></script>
+</body>
+</html>
