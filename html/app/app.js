@@ -68,13 +68,14 @@ $(function() {
   });
 
   function imagePath() {
+    var sname = currentState.replace(' ', '_');
     var path = '../data/'.concat(
-      currentState,
+      sname,
       '/',
       'P_RCP_85_',
       $('#period').val(),
       '__',
-      currentState,
+      sname,
       '__P',
       $('#year').val(),
       '.png'
