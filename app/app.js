@@ -3,7 +3,7 @@ $(function() {
   var currentState;
 
   var map = L.map('map', {
-    center: [50, -120],
+    center: [52, -120],
     zoom: 3,
     minZoom: 3,
     maxZoom: 6,
@@ -17,34 +17,77 @@ $(function() {
 
   $.getJSON("data/states.geojson", function(data) {
     // find
-    L.geoJson(data, {
+    var geojson = L.geoJson(data, {
       style: {
-        "color": "#555",
-        "weight": 1,
-        "opacity": 0.65
+        color: '#555',
+        weight: 1,
+        fillColor: '#858585'
       },
       onEachFeature: function(feature, layer) {
-        layer.on({
-          click: function() {
-            selectFeature(feature);
-          }
-        })
+        var defaultStyle = layer.style;
+        layer.on('click', function(e) {
+          geojson.eachLayer(function(l) {
+            geojson.resetStyle(l);
+          });
+          highlightFeature(layer);
+          selectFeature(feature);
+        });
       }
     }).addTo(map);
   });
 
   function selectFeature(feature) {
-    $('#periods').show();
     currentState = feature.properties.NAME;
     $('#state').text(currentState);
+    $('#show').show();
   }
 
-  // load config, prepare rest of application
-  $.getJSON("app/data_config.json", function(data) {
-    // find
-    console.log(data);
+  function highlightFeature(layer) {
+     layer.setStyle({
+         weight: 2,
+         color: '#000',
+         fillColor: '#33C3F0',
+     });
+     if (!L.Browser.ie && !L.Browser.opera) {
+         layer.bringToFront();
+     }
+  }
 
+  function transition() {
+    $('#selector').toggle();
+    $('#displayer').toggle();
+  }
+
+  $('#show').on('click', function() {
+    transition();
+    imagePath();
   });
 
+  $('#back').on('click', function() {
+    transition();
+  });
+
+  function imagePath() {
+    var path = '../data/'.concat(
+      currentState,
+      '/',
+      'P_RCP_85_',
+      $('#period').val(),
+      '__',
+      currentState,
+      '__P',
+      $('#year').val(),
+      '.png'
+    );
+
+    $('#selected').text(currentState.concat(
+      ' ',
+      $("#year option:selected").text(),
+      ' ',
+      $("#period option:selected").text()
+    ));
+
+    $('#image').attr('src', path);
+  }
 
 });

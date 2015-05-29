@@ -5,16 +5,16 @@
     "label": "Annual",
     "elem": "P_RCP_85_Annual"
   }, {
-    "label": "December-February",
+    "label": "Dec-Feb",
     "elem": "P_RCP_85_DJF"
   }, {
-    "label": "March-May",
+    "label": "Mar-May",
     "elem": "P_RCP_85_MAM"
   }, {
-    "label": "June-August",
+    "label": "Jun-Aug",
     "elem": "P_RCP_85_JJA"
   }, {
-    "label": "September-November",
+    "label": "Sep-Nov",
     "elem": "P_RCP_85_SON"
   }],
   "spans": [
