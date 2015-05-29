@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CMIP5 State Product Explorer</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="app/app.css" />
+	<link rel="stylesheet" href="vendor/leaflet.css" />
+	<link rel="stylesheet" href="vendor/jquery-ui.min.css" />
+	<link rel="stylesheet" href="vendor/skeleton.css" />
+	<link rel="stylesheet" href="vendor/normalize.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<h1>CMIP5 State Product Explorer</h1>
+			</div>
+		</div>
+		<div class="row">
+
+			<div id="selector">
+				<div class="eight columns" id="map"></div>
+				<div class="four columns">
+					<span><strong id="state">Select a state from the map</strong></span>
+					<div class="row">
+						<label for="year">Year</label>
+						<select class="u-full-width" id="year">
+							<option value="2041_2070">2041-2070</option>
+							<option value="2070_2099">2041-2070</option>
+						</select>
+					</div>
+					<div class="row">
+						<label for="period">Period</label>
+						<select class="u-full-width" id="period">
+							<option value="Annual">Annual</option>
+							<option value="DJF">December-February</option>
+							<option value="MAM">March-May</option>
+							<option value="JJA">June-August</option>
+							<option value="SON">September-November</option>
+						</select>
+					</div>
+					<div class="row">
+						<label>&nbsp;</label>
+						<input id="show" class="button-primary u-full-width" type="submit" value="Submit" style="display: none;">
+					</div>
+				</div>
+			</div>
+
+			<div id="displayer" class="twelve columns" style="display: none;">
+				<div class="row">
+					<div id="selected" class="eleven columns">Selected</div>
+					<div class="one column"><button id="back">Back</button></div>
+				</div>
+				<div class="row">
+					<img id="image" class="twelve columns"></img>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script src="vendor/jquery-2.1.4.min.js"></script>
+	<script src="vendor/jquery-ui.min.js"></script>
+	<script src="vendor/leaflet.js"></script>
+	<script src="app/app.js"></script>
+</body>
+</html>
