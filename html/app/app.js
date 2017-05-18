@@ -69,9 +69,7 @@ $(function() {
 
   function imagePath() {
     var sname = currentState.replace(' ', '_');
-    var path = '../data/'.concat(
-      sname,
-      '/',
+    var path = '../data/state_renders/'.concat(
       'P_RCP_85_',
       $('#period').val(),
       '__',
